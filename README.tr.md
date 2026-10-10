@@ -8,6 +8,8 @@ Antigravity masaüstü uygulamasındaki `Run`, `Accept`, `Always Allow`, `Retry`
 
 `AutoAcceptLite-Kurulum-1.1.0.exe` dosyasını çalıştırıp kurulumu tamamlayın. Node.js ve `ws` paketi kurulum dosyasına dahildir. Antigravity açıkken **AutoAccept Lite** kısayolunu başlatın. Uygulama konsol açmadan bildirim alanında çalışır.
 
+En yeni kaynak sürümü 1.1.1 siyah simge ve beyaz yıldızlar içerir. Tam kurulum EXE'si 1.1.0 sürümüdür; 1.1.1 kaynağıyla yeni kurulum üretmek için [`packaging/windows/README.md`](packaging/windows/README.md) yönergelerini izleyin.
+
 Sağ alttaki bildirim alanında AutoAccept Lite simgesine sağ tıklayın:
 
 - **Terminali göster:** durum ve hata satırlarını gösterir. Simgeye çift tıklamak da terminal penceresini açar.

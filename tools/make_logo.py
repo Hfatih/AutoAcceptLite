@@ -9,7 +9,7 @@ logo = Image.new('RGBA', (size, size), (0, 0, 0, 0))
 draw = ImageDraw.Draw(logo)
 
 # Black rounded tile with a muted outline, matching the supplied reference.
-draw.rounded_rectangle((8, 8, 504, 504), radius=112, fill='#000000', outline='#72556f', width=6)
+draw.rounded_rectangle((8, 8, 504, 504), radius=112, fill='#000000', outline='#ffffff', width=6)
 
 
 def sparkle(cx: int, cy: int, outer: int, inner: int) -> list[tuple[int, int]]:
@@ -35,15 +35,15 @@ wizard.paste(thumbnail, (106,130), thumbnail)
 bold = ImageFont.truetype('C:/Windows/Fonts/segoeuib.ttf', 49)
 regular = ImageFont.truetype('C:/Windows/Fonts/segoeui.ttf', 25)
 draw.text((53,467), 'AutoAccept', font=bold, fill='#101e2d')
-draw.text((53,527), 'Lite', font=bold, fill='#72556f')
+draw.text((53,527), 'Lite', font=bold, fill='#ffffff')
 draw.line((53,636,439,636), fill='#101e2d', width=2)
 draw.text((53,676), 'Antigravity için\notomatik onay.', font=regular, fill='#354b5a', spacing=12)
-draw.text((53,851), 'WINDOWS  ·  1.1.0', font=regular, fill='#354b5a')
+draw.text((53,851), 'WINDOWS  ·  1.1.1', font=regular, fill='#354b5a')
 wizard.save(root / 'wizard.png')
 
 # Editable vector source for the application icon.
 (root / 'logo.svg').write_text('''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-<rect x="8" y="8" width="496" height="496" rx="112" fill="#000000" stroke="#72556f" stroke-width="6"/>
+<rect x="8" y="8" width="496" height="496" rx="112" fill="#000000" stroke="#ffffff" stroke-width="6"/>
 <path d="M246 102 277 229 404 260 277 291 246 418 215 291 88 260 215 229Z" fill="#ffffff"/>
 <path d="M374 112 382 137 407 145 382 153 374 178 366 153 341 145 366 137Z" fill="#ffffff"/>
 </svg>\n''', encoding='utf-8')

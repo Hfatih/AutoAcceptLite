@@ -1,8 +1,8 @@
 [Setup]
 AppId=AutoAcceptLite
 AppName=AutoAccept Lite
-AppVersion=1.1.0
-AppVerName=AutoAccept Lite 1.1.0
+AppVersion=1.1.1
+AppVerName=AutoAccept Lite 1.1.1
 AppPublisher=AutoAccept Lite
 DefaultDirName={localappdata}\Programs\AutoAcceptLite
 DefaultGroupName=AutoAccept Lite
@@ -10,7 +10,7 @@ PrivilegesRequired=lowest
 ArchitecturesAllowed=x64compatible
 MinVersion=10.0
 OutputDir=dist
-OutputBaseFilename=AutoAcceptLite-Kurulum-1.1.0
+OutputBaseFilename=AutoAcceptLite-Kurulum-1.1.1
 SetupIconFile=assets\AutoAcceptLite.ico
 UninstallDisplayIcon={app}\AutoAcceptLite.exe
 WizardStyle=modern
