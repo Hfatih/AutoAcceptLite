@@ -1,0 +1,25 @@
+AutoAccept Lite 1.1.0 - Windows x64
+
+Kurulumdan sonra Antigravity'yi acin, ardindan masaustu kisayoluyla
+AutoAccept Lite'i baslatin. Uygulama terminal acmadan bildirim alaninda
+calisir. Simge gizli simgeler okunun arkasinda olabilir.
+
+Simgeye sag tiklayin:
+  Terminali goster durum ve hata satirlarini goruntule
+  Duraklat        otomatik tiklamalari durdur; Devam et ile surdur
+  Cikis           gozlemciyi sayfadan kaldir ve uygulamayi kapat
+
+Simgeye cift tiklamak terminal penceresini acar. Terminal penceresini kapatmak uygulamayi
+kapatmaz; uygulamayi tamamen kapatmak icin tepside Cikis'i secin.
+Windows acilisinda otomatik baslatma eklenmez.
+
+Ayarlar kurulum klasorundeki app\config.json dosyasindadir. Dosya
+degisikliginden sonra uygulamayi kapatip yeniden baslatin.
+
+Kaldirma: Windows Ayarlar > Uygulamalar > AutoAccept Lite veya
+AutoAcceptLite-Kaldir.exe. Kaldirmadan once tray menuden Cikis'i secin.
+
+Kurulum ve kaldirma EXE'leri guvenilir yayinci sertifikasiyla
+imzalanmamistir. Smart App Control bulunan cihazlarda engellenmeleri
+mumkundur; bu, uygulamanin zararli oldugunu kanitlamaz. Windows guvenlik
+ayarlari otomatik olarak degistirilmez.

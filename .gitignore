@@ -1,0 +1,4 @@
+node_modules/
+packaging/windows/payload/
+packaging/windows/dist/
+*.log

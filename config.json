@@ -1,0 +1,17 @@
+{
+  "port": null,
+
+  "autoAcceptFileEdits": true,
+  "autoRetryEnabled": true,
+  "customButtonTexts": ["submit"],
+
+  "useSafetyPresets": true,
+  "blockedCommands": [],
+  "allowedCommands": [],
+
+  "heartbeatMs": 2000,
+  "maxConcurrentTargets": 12,
+  "autoCycleActiveConversations": true,
+  "conversationSwitchMs": 1500,
+  "verbose": false
+}

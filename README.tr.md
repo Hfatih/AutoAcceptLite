@@ -1,0 +1,46 @@
+# AutoAccept Lite
+
+Antigravity masaüstü uygulamasındaki `Run`, `Accept`, `Always Allow`, `Retry`, `Continue` ve seçili özel düğmelere basan Windows aracı.
+
+**[English](README.en.md) · [Türkçe](README.tr.md)**
+
+## Windows uygulaması
+
+`AutoAcceptLite-Kurulum-1.1.0.exe` dosyasını çalıştırıp kurulumu tamamlayın. Node.js ve `ws` paketi kurulum dosyasına dahildir. Antigravity açıkken **AutoAccept Lite** kısayolunu başlatın. Uygulama konsol açmadan bildirim alanında çalışır.
+
+Sağ alttaki bildirim alanında AutoAccept Lite simgesine sağ tıklayın:
+
+- **Terminali göster:** durum ve hata satırlarını gösterir. Simgeye çift tıklamak da terminal penceresini açar.
+- **Duraklat / Devam et:** otomatik tıklamaları geçici olarak durdurur veya sürdürür.
+- **Çıkış:** gözlemciyi Antigravity sayfalarından kaldırıp uygulamayı kapatır.
+
+Windows simgeyi gizli simgeler okunun arkasına alırsa oku açıp AutoAccept Lite simgesini bulabilirsiniz. Terminal ilk açılışta gizlidir; pencerenin X düğmesi yalnızca terminali gizler. Uygulama Windows açılışında kendiliğinden başlamaz.
+
+## Geliştirici kullanımı
+
+Node.js 22 veya uyumlu güncel bir sürüm ile proje klasöründe:
+
+```powershell
+npm install
+npm start
+```
+
+Geliştirici modunda terminalde `P` duraklatır/devam ettirir, `Ctrl+C` çıkar. Windows kurulum paketini üretme adımları [`packaging/windows/README.md`](packaging/windows/README.md) dosyasındadır.
+
+## Nasıl çalışır
+
+Araç Antigravity'nin kendi yerel Chrome DevTools Protocol (CDP) uç noktasını bulur, açık renderer pencerelerini izler ve sayfa içindeki düğmeleri `MutationObserver` ile takip eder. Uygulama Antigravity'ye, VS Code'a veya bir eklentiye kurulmaz. Kendi CDP portunu açmaz. Ağ üzerinden başka bir makineye bağlanmaz; CDP bağlantısı `127.0.0.1` üzerindedir.
+
+## Güvenlik sınırları
+
+- Başlangıçta bazı bilinen yıkıcı komut kalıpları filtrelenir. Liste `src/config.js` içindedir; `config.json` üzerinden ek yasak ve izinli kalıplar tanımlanabilir.
+- Komut metni okunamıyorsa filtre riskli işlemi tanıyamayabilir. Güvenlik filtresi tam bir karantina değildir.
+- `customButtonTexts` varsayılanı `submit` içerir. Bu düğme soru yanıtı olmadan devam edebilir. Bu davranışı istemiyorsanız `config.json` listesinden `submit` değerini kaldırın.
+- `autoAcceptFileEdits` varsayılan olarak açıktır. Dosya değişikliklerini kendiniz incelemek için `false` yapın.
+- Kaynak kodunu ve varsayılan ayarları yayınlamadan önce gözden geçirin; kullanıma uygun ayarları siz seçin.
+
+## Lisanslar
+
+Bu projenin kodu MIT lisansı altındadır (`LICENSE`). `src/DOMObserver.js`, MIT lisanslı [AntiGravity-AutoAccept](https://github.com/yazanbaker94/AntiGravity-AutoAccept) projesinden alınmıştır; özgün lisans ve telif bildirimi `LICENSE.upstream` içinde korunur.
+
+Windows paketindeki Node.js çalışma zamanı OpenJS Foundation lisans koşullarına tabidir; bildirim `LICENSE.node.txt` dosyasındadır.
