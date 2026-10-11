@@ -6,9 +6,9 @@ A Windows tray app that automatically handles selected approval buttons in the s
 
 ## Windows app
 
-Run `AutoAcceptLite-Kurulum-1.1.0.exe` and complete setup. The installer includes Node.js and the `ws` dependency. With Antigravity open, launch **AutoAccept Lite** from its shortcut. The app starts without showing a console and runs in the Windows notification area.
+Run `AutoAcceptLite-Kurulum-1.1.2.exe` and complete setup. The installer includes Node.js and the `ws` dependency. With Antigravity open, launch **AutoAccept Lite** from its shortcut. The app starts without showing a console and runs in the Windows notification area.
 
-The latest source revision is 1.1.2: it fixes the tray launcher's log bug that froze the engine, and the interface now opens in Turkish or English depending on the Windows display language. The full installer is still version 1.1.0; to build an installer from the 1.1.2 source, follow [`packaging/windows/README.md`](packaging/windows/README.md).
+The latest source revision is 1.1.2: it fixes the tray launcher's log bug that froze the engine, and the interface now opens in Turkish or English depending on the Windows display language. To build the installer from source, follow [`packaging/windows/README.md`](packaging/windows/README.md).
 
 Right-click the AutoAccept Lite icon in the notification area:
 

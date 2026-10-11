@@ -8,7 +8,7 @@ $assetRoot = Join-Path $workRoot 'assets'
 $csc = 'C:/Windows/Microsoft.NET/Framework64/v4.0.30319/csc.exe'
 $compiler = $env:INNO_SETUP_COMPILER
 if ([string]::IsNullOrWhiteSpace($compiler)) {
-    $compiler = @('C:/Program Files (x86)/Inno Setup 7/ISCC.exe', 'C:/Program Files (x86)/Inno Setup 6/ISCC.exe') |
+    $compiler = @('C:/Program Files (x86)/Inno Setup 7/ISCC.exe', 'C:/Program Files (x86)/Inno Setup 6/ISCC.exe', (Join-Path $env:LOCALAPPDATA 'Programs/Inno Setup 6/ISCC.exe')) |
         Where-Object { Test-Path $_ } | Select-Object -First 1
 }
 
