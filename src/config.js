@@ -3,6 +3,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { t } = require('./i18n');
 
 /**
  * Tehlikeli komut kalıpları. Bir "Run" düğmesinin yanındaki <pre>/<code>
@@ -42,6 +43,7 @@ const DEFAULTS = {
     autoCycleActiveConversations: true, // tek sayfadaki calisan sohbetler arasynda dolaş
     conversationSwitchMs: 1500, // iki aktif sohbet gecisi arasindaki en kisa sure
     verbose: false,             // her taramayı yazdır
+    language: 'auto',           // 'auto' = bilgisayarin dili; 'tr' veya 'en' ile sabitlenir
 };
 
 /**
@@ -57,7 +59,7 @@ function loadConfig(rootDir) {
         try {
             user = JSON.parse(fs.readFileSync(file, 'utf8'));
         } catch (e) {
-            console.error(`[config] config.json okunamadi (${e.message}) — varsayilanlar kullaniliyor`);
+            console.error(t('configUnreadable', e.message));
         }
     }
 

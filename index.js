@@ -6,6 +6,7 @@ const path = require('path');
 const { loadConfig } = require('./src/config');
 const { Injector } = require('./src/injector');
 const { acquireLock } = require('./src/singleInstance');
+const { t, setLanguage } = require('./src/i18n');
 
 const C = {
     reset: '\x1b[0m', dim: '\x1b[90m', red: '\x1b[31m', green: '\x1b[32m',
@@ -40,16 +41,17 @@ function banner(cfg) {
     texts.push(...cfg.customButtonTexts);
 
     console.log('');
-    console.log(`${C.bold}  AutoAccept Lite${C.reset} ${C.dim}— Antigravity icin, IDE gerekmez${C.reset}`);
+    console.log(`${C.bold}  AutoAccept Lite${C.reset} ${C.dim}${t('bannerSubtitle')}${C.reset}`);
     console.log(`${C.dim}  ─────────────────────────────────────────────${C.reset}`);
-    console.log(`  Basilacak dugmeler : ${texts.join(', ')}`);
-    console.log(`  Guvenlik filtresi  : ${cfg.blockedCommands.length} yasak kalip` +
-        (cfg.allowedCommands.length ? `, ${cfg.allowedCommands.length} izinli kalip` : ''));
-    console.log(`  CDP portu          : ${cfg.port || 'otomatik bulunacak'}`);
-    console.log(`  Eszamanli sohbet   : ${cfg.maxConcurrentTargets} hedef`);
-    console.log(`  Aktif sohbet turu  : ${cfg.autoCycleActiveConversations ? `${cfg.conversationSwitchMs} ms` : 'kapali'}`);
+    console.log(`  ${t('bannerButtons')} : ${texts.join(', ')}`);
+    console.log(`  ${t('bannerFilter')} : ${t('bannerBlocked', cfg.blockedCommands.length)}` +
+        (cfg.allowedCommands.length ? `, ${t('bannerAllowed', cfg.allowedCommands.length)}` : ''));
+    console.log(`  ${t('bannerPort')} : ${cfg.port || t('bannerPortAuto')}`);
+    console.log(`  ${t('bannerTargets')} : ${t('bannerTargetUnit', cfg.maxConcurrentTargets)}`);
+    console.log(`  ${t('bannerCycle')} : ${cfg.autoCycleActiveConversations ? `${cfg.conversationSwitchMs} ms` : t('bannerOff')}`);
     console.log(`${C.dim}  ─────────────────────────────────────────────${C.reset}`);
-    console.log(`${C.dim}  [P] duraklat/devam    [Ctrl+C] cikis${C.reset}`);
+    // Tepside klavye yoktur; kisayol satiri yalnizca gercek terminalde anlamlidir.
+    if (process.stdin.isTTY) console.log(`${C.dim}  ${t('bannerKeys')}${C.reset}`);
     console.log('');
 }
 
@@ -59,13 +61,14 @@ async function main() {
     const lock = await acquireLock();
     if (!lock.acquired) {
         console.log('');
-        log('AutoAccept Lite zaten calisiyor. Ikinci pencere kapaniyor.', 'warn');
-        log('Calisan pencereyi bulamiyorsan: Gorev Yoneticisi → node.exe → gorevi sonlandir.', 'dim');
+        log(t('alreadyRunning'), 'warn');
+        log(t('alreadyRunningHint'), 'dim');
         console.log('');
         process.exit(0);
     }
 
     const cfg = loadConfig(__dirname);
+    setLanguage(cfg.language);
     banner(cfg);
 
     const injector = new Injector(cfg, log);
@@ -81,7 +84,7 @@ async function main() {
             if (k === '') return shutdown();  // Ctrl+C
             if (k.toLowerCase() === 'p') {
                 const paused = await injector.togglePause();
-                log(paused ? 'DURAKLATILDI — hicbir dugmeye basilmiyor' : 'DEVAM EDIYOR', paused ? 'warn' : 'ok');
+                log(t(paused ? 'paused' : 'resumed'), paused ? 'warn' : 'ok');
             }
         });
     }
@@ -91,12 +94,12 @@ async function main() {
         if (closing) return;
         closing = true;
         console.log('');
-        log(`Kapaniyor — bu oturumda ${injector.totalClicks} tiklama yapildi.`, 'ok');
+        log(t('closing', injector.totalClicks), 'ok');
         // Gozlemcinin sayfadan sokulmesini BEKLE; yoksa surec olur ama
         // sayfadaki tikla motoru arkada calismaya devam eder.
         try { await injector.stop(); } catch (e) { /* baglanti zaten kopmus */ }
         lock.release();
-        log('Gozlemci sayfalardan kaldirildi.', 'ok');
+        log(t('observerRemoved'), 'ok');
         if (process.stdin.isTTY) process.stdin.setRawMode(false);
         process.exit(0);
     }
@@ -117,7 +120,7 @@ async function main() {
                 const command = line.trim().toLowerCase();
                 if (command === 'p') {
                     const paused = await injector.togglePause();
-                    log(paused ? 'DURAKLATILDI — hicbir dugmeye basilmiyor' : 'DEVAM EDIYOR', paused ? 'warn' : 'ok');
+                    log(t(paused ? 'paused' : 'resumed'), paused ? 'warn' : 'ok');
                 } else if (command === 'q') {
                     await shutdown();
                     return;
@@ -129,6 +132,6 @@ async function main() {
 }
 
 main().catch((e) => {
-    log(`Baslatilamadi: ${e.message}`, 'err');
+    log(t('startFailed', e.message), 'err');
     process.exit(1);
 });

@@ -8,15 +8,18 @@ Antigravity masaüstü uygulamasındaki `Run`, `Accept`, `Always Allow`, `Retry`
 
 `AutoAcceptLite-Kurulum-1.1.0.exe` dosyasını çalıştırıp kurulumu tamamlayın. Node.js ve `ws` paketi kurulum dosyasına dahildir. Antigravity açıkken **AutoAccept Lite** kısayolunu başlatın. Uygulama konsol açmadan bildirim alanında çalışır.
 
-En yeni kaynak sürümü 1.1.1 siyah simge ve beyaz yıldızlar içerir. Tam kurulum EXE'si 1.1.0 sürümüdür; 1.1.1 kaynağıyla yeni kurulum üretmek için [`packaging/windows/README.md`](packaging/windows/README.md) yönergelerini izleyin.
+En yeni kaynak sürümü 1.1.2'dir: tepsi başlatıcısının motoru donduran günlük hatası giderildi, arayüz Windows diline göre Türkçe ya da İngilizce açılır. Tam kurulum EXE'si 1.1.0 sürümüdür; 1.1.2 kaynağıyla yeni kurulum üretmek için [`packaging/windows/README.md`](packaging/windows/README.md) yönergelerini izleyin.
 
 Sağ alttaki bildirim alanında AutoAccept Lite simgesine sağ tıklayın:
 
-- **Terminali göster:** durum ve hata satırlarını gösterir. Simgeye çift tıklamak da terminal penceresini açar.
+- **Günlüğü göster:** durum ve hata satırlarını gösterir. Simgeye çift tıklamak da günlük penceresini açar.
 - **Duraklat / Devam et:** otomatik tıklamaları geçici olarak durdurur veya sürdürür.
+- **Motoru yeniden başlat:** ayar değişikliğinden sonra ya da motor durduğunda motoru yeniden başlatır.
 - **Çıkış:** gözlemciyi Antigravity sayfalarından kaldırıp uygulamayı kapatır.
 
-Windows simgeyi gizli simgeler okunun arkasına alırsa oku açıp AutoAccept Lite simgesini bulabilirsiniz. Terminal ilk açılışta gizlidir; pencerenin X düğmesi yalnızca terminali gizler. Uygulama Windows açılışında kendiliğinden başlamaz.
+Windows simgeyi gizli simgeler okunun arkasına alırsa oku açıp AutoAccept Lite simgesini bulabilirsiniz. Günlük penceresi ilk açılışta gizlidir; pencerenin X düğmesi yalnızca pencereyi gizler. Uygulama Windows açılışında kendiliğinden başlamaz.
+
+Dil, Windows görüntüleme diline göre seçilir: Türkçe ise Türkçe, diğer dillerde İngilizce. Sabitlemek için `config.json` içinde `"language"` değerini `"tr"` ya da `"en"` yapın. Görev Yöneticisi'nde uygulama **AutoAccept Lite** (bildirim alanı) ve **Node.js JavaScript Runtime** (motor) olarak iki satır görünür.
 
 ## Geliştirici kullanımı
 

@@ -6,6 +6,7 @@ const { listTargets, CdpSession } = require('./cdpClient');
 const { discoverPort } = require('./portDiscovery');
 const { buildDOMObserverScript } = require('./DOMObserver');
 const { buildWatchdogScript, HEARTBEAT_EXPR, DISARM_EXPR } = require('./watchdog');
+const { t } = require('./i18n');
 
 /**
  * Gozlemciyi sayfadan sokup atan ifade.
@@ -178,7 +179,7 @@ class Injector {
     async _tick() {
         if (!this._running) return;
         try { await this._pass(); }
-        catch (e) { if (this.cfg.verbose) this.log(`dongu hatasi: ${e.message}`, 'warn'); }
+        catch (e) { if (this.cfg.verbose) this.log(t('loopError', e.message), 'warn'); }
         if (this._running) this._timer = setTimeout(() => this._tick(), this.cfg.heartbeatMs);
     }
 
@@ -187,21 +188,21 @@ class Injector {
             const found = await discoverPort(this.cfg.port);
             if (!found) {
                 if (!this._warnedOffline) {
-                    this.log('Antigravity bulunamadi — uygulamayi ac, otomatik baglanacagim.', 'warn');
+                    this.log(t('notFound'), 'warn');
                     this._warnedOffline = true;
                 }
                 return;
             }
             this.port = found.port;
             this._warnedOffline = false;
-            this.log(`Baglandi: 127.0.0.1:${found.port}  [${found.source}]`, 'ok');
+            this.log(t('connected', found.port, found.source), 'ok');
         }
 
         let targets;
         try {
             targets = await listTargets(this.port);
         } catch (e) {
-            this.log('Baglanti koptu — Antigravity kapandi mi? Yeniden aranacak.', 'warn');
+            this.log(t('connectionLost'), 'warn');
             this._dropAll();
             this.port = null;
             return;
@@ -220,7 +221,7 @@ class Injector {
             if (!alive.has(id)) {
                 entry.session.close();
                 this.sessions.delete(id);
-                this.log(`Pencere kapandi: ${entry.title}`, 'dim');
+                this.log(t('windowClosed', entry.title), 'dim');
             }
         }
     }
@@ -236,7 +237,7 @@ class Injector {
                 catch (e) {
                     // _ensure kendi hatalarini kayda alir; bu son koruma, bir
                     // hedefin hicbir zaman tum tarama turunu kesmemesini saglar.
-                    if (this.cfg.verbose) this.log(`hedef atladi: ${e.message}`, 'warn');
+                    if (this.cfg.verbose) this.log(t('targetSkipped', e.message), 'warn');
                 }
             }
         };
@@ -251,7 +252,7 @@ class Injector {
      * @returns {string}
      */
     _label(target) {
-        const title = (target.title || '').trim() || 'isimsiz';
+        const title = (target.title || '').trim() || t('untitled');
         return `${title} #${target.id.substring(0, 4)}`;
     }
 
@@ -276,7 +277,7 @@ class Injector {
             catch (e) { session.close(); return; }
             entry = { session, title: this._label(target) };
             this.sessions.set(target.id, entry);
-            this.log(`Pencere bulundu: ${entry.title}`, 'dim');
+            this.log(t('windowFound', entry.title), 'dim');
         }
 
         entry.title = this._label(target);
@@ -292,8 +293,8 @@ class Injector {
                 const res = await entry.session.evaluate(this.script, 15000);
                 await entry.session.evaluate(`window.__AA_SCRIPT_ID = ${JSON.stringify(this.scriptId)}; "ok"`, 3000);
                 if (this.paused) await entry.session.evaluate('window.__AA_PAUSED = true; "ok"', 3000);
-                if (res === 'observer-installed') this.log(`Gozlemci kuruldu → ${entry.title}`, 'ok');
-                else this.log(`Gozlemci yanit verdi "${res}" → ${entry.title}`, 'warn');
+                if (res === 'observer-installed') this.log(t('observerInstalled', entry.title), 'ok');
+                else this.log(t('observerReplied', res, entry.title), 'warn');
             }
             // Kalp atisi: bu tazeleme kesilirse sayfadaki bekci gozlemciyi soker.
             await entry.session.evaluate(HEARTBEAT_EXPR, 3000);
@@ -322,11 +323,11 @@ class Injector {
 
         for (const c of data.clicks || []) {
             this.totalClicks++;
-            this.log(`TIKLANDI  "${c.text}"  →  ${entry.title}`, 'click');
+            this.log(t('clicked', c.text, entry.title), 'click');
         }
         if (data.blocked > 0 && data.blocked !== entry.lastBlocked) {
             entry.lastBlocked = data.blocked;
-            this.log(`ENGELLENDI  ${data.blocked} komut guvenlik filtresine takildi → ${entry.title}`, 'block');
+            this.log(t('blocked', data.blocked, entry.title), 'block');
         }
         return { clicks: (data.clicks || []).length, blocked: data.blocked || 0 };
     }
@@ -338,7 +339,7 @@ class Injector {
         let data;
         try { data = JSON.parse(raw); } catch (e) { return; }
         if (data && data.title) {
-            this.log(`AKTIF SOHBET → ${data.title}  (${data.activeCount} calisan)`, 'dim');
+            this.log(t('activeChat', data.title, data.activeCount), 'dim');
         }
     }
 

@@ -8,15 +8,18 @@ A Windows tray app that automatically handles selected approval buttons in the s
 
 Run `AutoAcceptLite-Kurulum-1.1.0.exe` and complete setup. The installer includes Node.js and the `ws` dependency. With Antigravity open, launch **AutoAccept Lite** from its shortcut. The app starts without showing a console and runs in the Windows notification area.
 
-The latest source revision is 1.1.1 and includes the black icon with white stars. The full installer is still version 1.1.0; to build an installer from the 1.1.1 source, follow [`packaging/windows/README.md`](packaging/windows/README.md).
+The latest source revision is 1.1.2: it fixes the tray launcher's log bug that froze the engine, and the interface now opens in Turkish or English depending on the Windows display language. The full installer is still version 1.1.0; to build an installer from the 1.1.2 source, follow [`packaging/windows/README.md`](packaging/windows/README.md).
 
 Right-click the AutoAccept Lite icon in the notification area:
 
-- **Show terminal:** displays status and error output. Double-clicking the icon also opens it.
+- **Show log:** displays status and error output. Double-clicking the icon also opens it.
 - **Pause / Resume:** temporarily stops or resumes automatic clicks.
+- **Restart engine:** restarts the engine after a settings change or if it stopped.
 - **Exit:** removes the observer from Antigravity pages and closes the app.
 
-Windows may place the icon behind the hidden-icons arrow. The terminal is hidden at startup; closing its window only hides it. AutoAccept Lite does not add itself to Windows startup.
+Windows may place the icon behind the hidden-icons arrow. The log window is hidden at startup; closing it only hides it. AutoAccept Lite does not add itself to Windows startup.
+
+The language follows the Windows display language: Turkish if it is Turkish, English otherwise. To force one, set `"language"` to `"tr"` or `"en"` in `config.json`. Task Manager shows the app as two rows: **AutoAccept Lite** (notification area) and **Node.js JavaScript Runtime** (engine).
 
 ## Developer setup
 

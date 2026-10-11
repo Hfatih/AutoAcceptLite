@@ -1,25 +1,72 @@
-AutoAccept Lite 1.1.0 - Windows x64
+﻿AutoAccept Lite 1.1.2 - Windows x64
+(English below)
 
-Kurulumdan sonra Antigravity'yi acin, ardindan masaustu kisayoluyla
-AutoAccept Lite'i baslatin. Uygulama terminal acmadan bildirim alaninda
-calisir. Simge gizli simgeler okunun arkasinda olabilir.
+Kurulumdan sonra Antigravity'yi açın, ardından masaüstü kısayoluyla
+AutoAccept Lite'ı başlatın. Uygulama pencere açmadan bildirim alanında
+çalışır. Simge gizli simgeler okunun arkasında olabilir. Fareyi simgenin
+üzerine getirince durumu görürsünüz: çalışıyor, duraklatıldı ya da motor durdu.
 
-Simgeye sag tiklayin:
-  Terminali goster durum ve hata satirlarini goruntule
-  Duraklat        otomatik tiklamalari durdur; Devam et ile surdur
-  Cikis           gozlemciyi sayfadan kaldir ve uygulamayi kapat
+Simgeye sağ tıklayın:
+  Günlüğü göster          durum ve hata satırlarını görüntüle
+  Duraklat / Devam et     otomatik tıklamaları durdur ya da sürdür
+  Motoru yeniden başlat   ayar değişikliğinden sonra ya da motor durduysa
+  Çıkış                   gözlemciyi sayfadan kaldır ve uygulamayı kapat
 
-Simgeye cift tiklamak terminal penceresini acar. Terminal penceresini kapatmak uygulamayi
-kapatmaz; uygulamayi tamamen kapatmak icin tepside Cikis'i secin.
-Windows acilisinda otomatik baslatma eklenmez.
+Simgeye çift tıklamak günlük penceresini açar. Günlük penceresini kapatmak
+uygulamayı kapatmaz; tamamen kapatmak için menüden Çıkış'ı seçin.
+Windows açılışında otomatik başlatma eklenmez.
 
-Ayarlar kurulum klasorundeki app\config.json dosyasindadir. Dosya
-degisikliginden sonra uygulamayi kapatip yeniden baslatin.
+Görev Yöneticisi'nde uygulama iki satır olarak görünür: "AutoAccept Lite"
+(bildirim alanı) ve "Node.js JavaScript Runtime" (motor).
 
-Kaldirma: Windows Ayarlar > Uygulamalar > AutoAccept Lite veya
-AutoAcceptLite-Kaldir.exe. Kaldirmadan once tray menuden Cikis'i secin.
+Dil, Windows görüntüleme diline göre seçilir: Türkçe ise Türkçe, diğer
+dillerde İngilizce. Sabitlemek için app\config.json içinde "language"
+değerini "tr" ya da "en" yapın.
 
-Kurulum ve kaldirma EXE'leri guvenilir yayinci sertifikasiyla
-imzalanmamistir. Smart App Control bulunan cihazlarda engellenmeleri
-mumkundur; bu, uygulamanin zararli oldugunu kanitlamaz. Windows guvenlik
-ayarlari otomatik olarak degistirilmez.
+Ayarlar kurulum klasöründeki app\config.json dosyasındadır. Değişiklikten
+sonra menüden "Motoru yeniden başlat"ı seçin.
+
+Kaldırma: Windows Ayarlar > Uygulamalar > AutoAccept Lite veya
+AutoAcceptLite-Kaldir.exe. Kaldırmadan önce menüden Çıkış'ı seçin.
+
+Kurulum ve kaldırma EXE'leri güvenilir yayıncı sertifikasıyla
+imzalanmamıştır. Smart App Control bulunan cihazlarda engellenmeleri
+mümkündür; bu, uygulamanın zararlı olduğunu kanıtlamaz. Windows güvenlik
+ayarları otomatik olarak değiştirilmez.
+
+----------------------------------------------------------------------
+
+English
+
+After setup, open Antigravity, then start AutoAccept Lite from its desktop
+shortcut. The app runs in the notification area without opening a window.
+The icon may be behind the hidden-icons arrow. Hover over it to see the
+state: running, paused or engine stopped.
+
+Right-click the icon:
+  Show log          view status and error lines
+  Pause / Resume    stop or continue automatic clicks
+  Restart engine    after changing settings, or if the engine stopped
+  Exit              remove the observer from the page and close the app
+
+Double-clicking the icon opens the log window. Closing the log window does
+not close the app; choose Exit from the menu to quit.
+The app does not add itself to Windows startup.
+
+Task Manager shows two rows: "AutoAccept Lite" (notification area) and
+"Node.js JavaScript Runtime" (engine).
+
+The language follows the Windows display language: Turkish if it is
+Turkish, English otherwise. To force one, set "language" to "tr" or "en"
+in app\config.json.
+
+Settings live in app\config.json inside the installation folder. After a
+change, choose "Restart engine" from the menu.
+
+Uninstall: Windows Settings > Apps > AutoAccept Lite, or
+AutoAcceptLite-Kaldir.exe. Choose Exit from the menu first.
+
+The setup and uninstall EXEs are not signed with a trusted publisher
+certificate. Devices with Smart App Control may block them; that does not
+prove the app is harmful. Windows security settings are never changed
+automatically.

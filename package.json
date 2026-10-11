@@ -1,6 +1,6 @@
 {
   "name": "autoaccept-lite",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "private": false,
   "description": "Antigravity (standalone app) icin IDE gerektirmeyen otomatik onay araci — CDP uzerinden Run/Accept/Always Allow dugmelerine basar.",
   "main": "index.js",

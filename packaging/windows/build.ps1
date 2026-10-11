@@ -32,9 +32,9 @@ foreach ($name in @('index.js', 'config.json', 'package.json', 'package-lock.jso
 Copy-Item -LiteralPath (Join-Path $repoRoot 'src') -Destination $appOut -Recurse
 Copy-Item -LiteralPath (Join-Path $repoRoot 'node_modules') -Destination $appOut -Recurse
 
-& $csc /nologo /target:winexe /platform:x64 /optimize+ /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "/win32icon:$(Join-Path $assetRoot 'AutoAcceptLite.ico')" "/out:$(Join-Path $payload 'AutoAcceptLite.exe')" (Join-Path $workRoot 'Launcher.cs')
+& $csc /nologo /target:winexe /platform:x64 /optimize+ /codepage:65001 /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "/win32icon:$(Join-Path $assetRoot 'AutoAcceptLite.ico')" "/out:$(Join-Path $payload 'AutoAcceptLite.exe')" (Join-Path $workRoot 'Launcher.cs')
 if ($LASTEXITCODE -ne 0) { throw 'Tray launcher build failed.' }
-& $csc /nologo /target:winexe /platform:x64 /optimize+ /define:UNINSTALL /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "/win32icon:$(Join-Path $assetRoot 'AutoAcceptLite.ico')" "/out:$(Join-Path $workRoot 'dist/AutoAcceptLite-Kaldir.exe')" (Join-Path $workRoot 'Launcher.cs')
+& $csc /nologo /target:winexe /platform:x64 /optimize+ /codepage:65001 /define:UNINSTALL /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "/win32icon:$(Join-Path $assetRoot 'AutoAcceptLite.ico')" "/out:$(Join-Path $workRoot 'dist/AutoAcceptLite-Kaldir.exe')" (Join-Path $workRoot 'Launcher.cs')
 if ($LASTEXITCODE -ne 0) { throw 'Uninstaller helper build failed.' }
 & $compiler (Join-Path $workRoot 'setup.iss')
 if ($LASTEXITCODE -ne 0) { throw 'Inno Setup build failed.' }

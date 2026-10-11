@@ -3,6 +3,7 @@
 
 const http = require('http');
 const WebSocket = require('ws');
+const { t } = require('./i18n');
 
 /**
  * 127.0.0.1:<port>/json/list uzerinden acik CDP hedeflerini getirir.
@@ -18,12 +19,12 @@ function listTargets(port) {
                 res.on('data', (c) => (data += c));
                 res.on('end', () => {
                     try { resolve(JSON.parse(data)); }
-                    catch (e) { reject(new Error('hedef listesi cozulemedi')); }
+                    catch (e) { reject(new Error(t('cdpListParse'))); }
                 });
             }
         );
         req.on('error', reject);
-        req.on('timeout', () => { req.destroy(); reject(new Error('hedef listesi zaman asimi')); });
+        req.on('timeout', () => { req.destroy(); reject(new Error(t('cdpListTimeout'))); });
     });
 }
 
@@ -41,7 +42,7 @@ class CdpSession {
         this.ws = new WebSocket(wsUrl, { maxPayload: 64 * 1024 * 1024 });
 
         this.ready = new Promise((resolve, reject) => {
-            const t = setTimeout(() => { this._kill(new Error('baglanti zaman asimi')); reject(new Error('baglanti zaman asimi')); }, 5000);
+            const t = setTimeout(() => { this._kill(new Error(t('cdpConnectTimeout'))); reject(new Error(t('cdpConnectTimeout'))); }, 5000);
             this.ws.on('open', () => { clearTimeout(t); resolve(); });
             this.ws.on('error', (err) => { clearTimeout(t); this._kill(err); reject(err); });
         });
@@ -53,11 +54,11 @@ class CdpSession {
             if (!h) return;
             this._pending.delete(msg.id);
             clearTimeout(h.timer);
-            if (msg.error) h.reject(new Error(msg.error.message || 'CDP hatasi'));
+            if (msg.error) h.reject(new Error(msg.error.message || t('cdpError')));
             else h.resolve(msg.result);
         });
 
-        this.ws.on('close', () => this._kill(new Error('baglanti kapandi')));
+        this.ws.on('close', () => this._kill(new Error(t('cdpClosed'))));
     }
 
     _kill(err) {
@@ -75,12 +76,12 @@ class CdpSession {
      * @param {number} timeoutMs
      */
     send(method, params = {}, timeoutMs = 10000) {
-        if (this.dead) return Promise.reject(new Error('baglanti olu'));
+        if (this.dead) return Promise.reject(new Error(t('cdpDead')));
         return new Promise((resolve, reject) => {
             const id = ++this._id;
             const timer = setTimeout(() => {
                 this._pending.delete(id);
-                reject(new Error(`zaman asimi: ${method}`));
+                reject(new Error(t('cdpTimeout', method)));
             }, timeoutMs);
             this._pending.set(id, { resolve, reject, timer });
             try { this.ws.send(JSON.stringify({ id, method, params })); }
@@ -98,12 +99,12 @@ class CdpSession {
         const res = await this.send('Runtime.evaluate', { expression, returnByValue: true, awaitPromise: true }, timeoutMs);
         if (res.exceptionDetails) {
             const d = res.exceptionDetails;
-            throw new Error(d.exception?.description || d.text || 'sayfa istisnasi');
+            throw new Error(d.exception?.description || d.text || t('cdpPageException'));
         }
         return res.result?.value;
     }
 
-    close() { this._kill(new Error('kapatildi')); }
+    close() { this._kill(new Error(t('cdpShutdown'))); }
 }
 
 module.exports = { listTargets, CdpSession };

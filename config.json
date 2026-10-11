@@ -13,5 +13,6 @@
   "maxConcurrentTargets": 12,
   "autoCycleActiveConversations": true,
   "conversationSwitchMs": 1500,
-  "verbose": false
+  "verbose": false,
+  "language": "auto"
 }
