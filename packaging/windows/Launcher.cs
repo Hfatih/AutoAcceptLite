@@ -14,8 +14,8 @@ using Microsoft.Win32;
 [assembly: AssemblyTitle("AutoAccept Lite")]
 [assembly: AssemblyDescription("AutoAccept Lite tray application")]
 [assembly: AssemblyProduct("AutoAccept Lite")]
-[assembly: AssemblyVersion("1.1.2.0")]
-[assembly: AssemblyFileVersion("1.1.2.0")]
+[assembly: AssemblyVersion("1.1.3.0")]
+[assembly: AssemblyFileVersion("1.1.3.0")]
 
 // Arayuz dili Windows goruntuleme diline gore secilir: Turkce ise Turkce, degilse Ingilizce.
 internal static class Lang

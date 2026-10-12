@@ -277,6 +277,7 @@ class Injector {
             catch (e) { session.close(); return; }
             entry = { session, title: this._label(target) };
             this.sessions.set(target.id, entry);
+            await this._keepActive(session);
             this.log(t('windowFound', entry.title), 'dim');
         }
 
@@ -287,6 +288,8 @@ class Injector {
             if (active !== true) {
                 // Eski/yabanci bir gozlemci varsa once sokulur, sonra guncel surum basilir.
                 await entry.session.evaluate(CLEANUP_EXPR, 5000);
+                // Sayfa yeniden yuklendiyse odak emulasyonu da tazelensin.
+                await this._keepActive(entry.session);
                 // Bekci gozlemciden ONCE kurulur: gozlemcinin kurulum sirasindaki
                 // `window.__AA_PAUSED = false` atamasi bekcinin setter'ina dusmeli.
                 await entry.session.evaluate(this.watchdogScript, 5000);
@@ -312,6 +315,28 @@ class Injector {
             if (this.cfg.verbose) this.log(`${entry.title}: ${e.message}`, 'warn');
             entry.session.close();
             this.sessions.delete(target.id);
+        }
+    }
+
+    /**
+     * Antigravity penceresi baska bir pencerenin arkasinda kaldiginda ya da
+     * kucultuldugunde Chromium sayfayi "gizli" sayar: zamanlayicilar saniyede
+     * bire (5 dakika sonra dakikada bire) kisilir ve requestAnimationFrame hic
+     * calismaz. Gozlemcinin taramasi ve arayuzun yeni dugmeleri cizmesi bu
+     * yuzden gecikir ya da hic olmaz. Odak emulasyonu, CDP oturumu acik kaldigi
+     * surece sayfayi gorunur ve odakli gosterir; oturum kapaninca kendiliginden
+     * eski haline doner. Bedeli: Antigravity arka plandayken de cizim yapar.
+     * @param {CdpSession} session
+     */
+    async _keepActive(session) {
+        if (!this.cfg.keepActiveInBackground) return;
+        try {
+            await session.send('Emulation.setFocusEmulationEnabled', { enabled: true }, 3000);
+        } catch (e) {
+            if (!this._warnedKeepActive) {
+                this._warnedKeepActive = true;
+                this.log(t('keepActiveFailed', e.message), 'warn');
+            }
         }
     }
 

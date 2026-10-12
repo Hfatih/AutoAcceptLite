@@ -42,7 +42,8 @@ const DEFAULTS = {
     maxConcurrentTargets: 12,   // ayni anda denetlenecek sohbet/pencere sayisi
     autoCycleActiveConversations: true, // tek sayfadaki calisan sohbetler arasynda dolaş
     conversationSwitchMs: 1500, // iki aktif sohbet gecisi arasindaki en kisa sure
-    verbose: false,             // her taramayı yazdır
+    keepActiveInBackground: true, // Antigravity gizli/kucuk iken de sayfayi uyanik tut (yoksa tiklamalar gecikir)
+    verbose: false,            // her taramayı yazdır
     language: 'auto',           // 'auto' = bilgisayarin dili; 'tr' veya 'en' ile sabitlenir
 };
 
@@ -81,6 +82,7 @@ function loadConfig(rootDir) {
     // rahat kalmasi hem de acik sohbetlerin birbirini beklememesi icin makul bir sinir.
     cfg.maxConcurrentTargets = Math.max(1, Math.min(64, cfg.maxConcurrentTargets));
     if (typeof cfg.autoCycleActiveConversations !== 'boolean') cfg.autoCycleActiveConversations = true;
+    if (typeof cfg.keepActiveInBackground !== 'boolean') cfg.keepActiveInBackground = true;
     if (typeof cfg.conversationSwitchMs !== 'number' || cfg.conversationSwitchMs < 500) {
         cfg.conversationSwitchMs = DEFAULTS.conversationSwitchMs;
     }

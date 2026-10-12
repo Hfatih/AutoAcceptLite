@@ -6,9 +6,9 @@ Antigravity masaüstü uygulamasındaki `Run`, `Accept`, `Always Allow`, `Retry`
 
 ## Windows uygulaması
 
-`AutoAcceptLite-Kurulum-1.1.2.exe` dosyasını çalıştırıp kurulumu tamamlayın. Node.js ve `ws` paketi kurulum dosyasına dahildir. Antigravity açıkken **AutoAccept Lite** kısayolunu başlatın. Uygulama konsol açmadan bildirim alanında çalışır.
+`AutoAcceptLite-Kurulum-1.1.3.exe` dosyasını çalıştırıp kurulumu tamamlayın. Node.js ve `ws` paketi kurulum dosyasına dahildir. Antigravity açıkken **AutoAccept Lite** kısayolunu başlatın. Uygulama konsol açmadan bildirim alanında çalışır.
 
-En yeni kaynak sürümü 1.1.2'dir: tepsi başlatıcısının motoru donduran günlük hatası giderildi, arayüz Windows diline göre Türkçe ya da İngilizce açılır. Kaynaktan kurulum üretmek için [`packaging/windows/README.md`](packaging/windows/README.md) yönergelerini izleyin.
+En yeni kaynak sürümü 1.1.3'tür: Antigravity arka plandayken (başka pencerenin arkasında ya da küçültülmüş) onayların gecikmesi ya da hiç yapılmaması giderildi. Chromium gizli sayfada zamanlayıcıları kısıp çizimi durdurduğu için uygulama artık sayfayı uyanık tutar; kapatmak için `config.json` içinde `"keepActiveInBackground": false` yazın. 1.1.2'de tepsi başlatıcısının motoru donduran günlük hatası giderildi, arayüz Windows diline göre Türkçe ya da İngilizce açılır. Kaynaktan kurulum üretmek için [`packaging/windows/README.md`](packaging/windows/README.md) yönergelerini izleyin.
 
 Sağ alttaki bildirim alanında AutoAccept Lite simgesine sağ tıklayın:
 

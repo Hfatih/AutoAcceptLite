@@ -49,6 +49,7 @@ function banner(cfg) {
     console.log(`  ${t('bannerPort')} : ${cfg.port || t('bannerPortAuto')}`);
     console.log(`  ${t('bannerTargets')} : ${t('bannerTargetUnit', cfg.maxConcurrentTargets)}`);
     console.log(`  ${t('bannerCycle')} : ${cfg.autoCycleActiveConversations ? `${cfg.conversationSwitchMs} ms` : t('bannerOff')}`);
+    console.log(`  ${t('bannerBackground')} : ${t(cfg.keepActiveInBackground ? 'bannerOn' : 'bannerOff')}`);
     console.log(`${C.dim}  ─────────────────────────────────────────────${C.reset}`);
     // Tepside klavye yoktur; kisayol satiri yalnizca gercek terminalde anlamlidir.
     if (process.stdin.isTTY) console.log(`${C.dim}  ${t('bannerKeys')}${C.reset}`);

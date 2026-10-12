@@ -1,4 +1,4 @@
-﻿AutoAccept Lite 1.1.2 - Windows x64
+﻿AutoAccept Lite 1.1.3 - Windows x64
 (English below)
 
 Kurulumdan sonra Antigravity'yi açın, ardından masaüstü kısayoluyla
@@ -18,6 +18,11 @@ Windows açılışında otomatik başlatma eklenmez.
 
 Görev Yöneticisi'nde uygulama iki satır olarak görünür: "AutoAccept Lite"
 (bildirim alanı) ve "Node.js JavaScript Runtime" (motor).
+
+Antigravity başka bir pencerenin arkasındayken ya da küçültülmüşken de
+onaylar sürer: uygulama sayfayı uyanık tutar. Bu, Antigravity'nin arka
+planda da çizim yapması demektir; kapatmak için app\config.json içinde
+"keepActiveInBackground" değerini false yapın.
 
 Dil, Windows görüntüleme diline göre seçilir: Türkçe ise Türkçe, diğer
 dillerde İngilizce. Sabitlemek için app\config.json içinde "language"
@@ -55,6 +60,11 @@ The app does not add itself to Windows startup.
 
 Task Manager shows two rows: "AutoAccept Lite" (notification area) and
 "Node.js JavaScript Runtime" (engine).
+
+Approvals continue while Antigravity is behind another window or
+minimized: the app keeps the page awake. This means Antigravity keeps
+rendering in the background; set "keepActiveInBackground" to false in
+app\config.json to turn it off.
 
 The language follows the Windows display language: Turkish if it is
 Turkish, English otherwise. To force one, set "language" to "tr" or "en"
