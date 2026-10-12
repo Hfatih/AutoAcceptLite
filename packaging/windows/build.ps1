@@ -26,7 +26,7 @@ try {
 
 if (Test-Path $appOut) { Remove-Item -LiteralPath $appOut -Recurse -Force }
 New-Item -ItemType Directory -Force -Path $appOut | Out-Null
-foreach ($name in @('index.js', 'config.json', 'package.json', 'package-lock.json', 'README.md', 'README.en.md', 'README.tr.md', 'LICENSE', 'LICENSE.upstream', 'THIRD-PARTY-NOTICES.md')) {
+foreach ($name in @('index.js', 'config.json', 'package.json', 'package-lock.json', 'README.md', 'README.tr.md', 'LICENSE', 'LICENSE.upstream', 'THIRD-PARTY-NOTICES.md')) {
     Copy-Item -LiteralPath (Join-Path $repoRoot $name) -Destination $appOut
 }
 Copy-Item -LiteralPath (Join-Path $repoRoot 'src') -Destination $appOut -Recurse

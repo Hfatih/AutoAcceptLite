@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" width="960" height="430" role="img" aria-label="AutoAccept Lite log window and tray menu">
+  <rect width="960" height="430" rx="14" fill="#0b1622"/>
+
+  <!-- Log window -->
+  <rect x="24" y="24" width="660" height="382" rx="10" fill="#101e2d" stroke="#24384d"/>
+  <rect x="24" y="24" width="660" height="34" rx="10" fill="#182a3d"/>
+  <rect x="24" y="46" width="660" height="12" fill="#182a3d"/>
+  <rect x="38" y="33" width="16" height="16" rx="4" fill="#000" stroke="#fff"/>
+  <path d="M42 41l3 3 6-7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="64" y="46" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#d7e6f2">AutoAccept Lite - Log</text>
+
+  <g font-family="Consolas, 'Courier New', monospace" font-size="13">
+    <text x="42" y="86" fill="#e6f5f2" font-weight="bold">AutoAccept Lite <tspan fill="#7f93a6" font-weight="normal">— for Antigravity, no IDE required</tspan></text>
+    <text x="42" y="108" fill="#e6f5f2">Buttons to click    : run, accept, always allow, allow, retry, continue</text>
+    <text x="42" y="128" fill="#e6f5f2">Safety filter       : 52 blocked patterns</text>
+    <text x="42" y="148" fill="#e6f5f2">CDP port            : auto-detect</text>
+    <text x="42" y="168" fill="#e6f5f2">Work in background  : on</text>
+
+    <text x="42" y="204" fill="#7f93a6">00:43:12 <tspan fill="#4ade80">✓</tspan><tspan fill="#e6f5f2"> Connected: 127.0.0.1:64911  [DevToolsActivePort]</tspan></text>
+    <text x="42" y="226" fill="#7f93a6">00:43:12 · Window found: Usage Hub Bug Fixes - Antigravity #CDCB</text>
+    <text x="42" y="248" fill="#7f93a6">00:43:13 <tspan fill="#4ade80">✓</tspan><tspan fill="#e6f5f2"> Observer installed → Usage Hub Bug Fixes #CDCB</tspan></text>
+    <text x="42" y="270" fill="#7f93a6">00:43:13 <tspan fill="#22d3ee">➜</tspan><tspan fill="#e6f5f2"> CLICKED  "run"  →  Usage Hub Bug Fixes #CDCB</tspan></text>
+    <text x="42" y="292" fill="#7f93a6">00:43:21 <tspan fill="#22d3ee">➜</tspan><tspan fill="#e6f5f2"> CLICKED  "accept"  →  Usage Hub Bug Fixes #CDCB</tspan></text>
+    <text x="42" y="314" fill="#7f93a6">00:43:40 <tspan fill="#f87171">⛔</tspan><tspan fill="#e6f5f2"> BLOCKED  1 command(s) stopped by the safety filter</tspan></text>
+    <text x="42" y="336" fill="#7f93a6">00:44:02 · ACTIVE CHAT → Release notes draft  (2 running)</text>
+    <text x="42" y="358" fill="#7f93a6">00:44:05 <tspan fill="#facc15">!</tspan><tspan fill="#e6f5f2"> PAUSED — no buttons are being clicked</tspan></text>
+    <text x="42" y="380" fill="#7f93a6">00:44:19 <tspan fill="#4ade80">✓</tspan><tspan fill="#e6f5f2"> RESUMED</tspan></text>
+  </g>
+
+  <!-- Tray menu -->
+  <rect x="716" y="196" width="220" height="164" rx="8" fill="#f6f8fa" stroke="#c9d3dc"/>
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#1b2733">
+    <text x="736" y="228">Show log</text>
+    <text x="736" y="260">Pause</text>
+    <text x="736" y="292">Restart engine</text>
+    <line x1="726" y1="308" x2="926" y2="308" stroke="#d5dde5"/>
+    <text x="736" y="338">Exit</text>
+  </g>
+
+  <!-- Tray tooltip and icon -->
+  <rect x="716" y="130" width="220" height="34" rx="6" fill="#182a3d" stroke="#24384d"/>
+  <text x="730" y="152" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#d7e6f2">AutoAccept Lite - running</text>
+  <rect x="880" y="372" width="30" height="30" rx="7" fill="#000" stroke="#fff" stroke-width="1.5"/>
+  <path d="M887 387l6 6 11-13" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="716" y="392" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#7f93a6">notification area</text>
+</svg>
