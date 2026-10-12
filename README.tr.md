@@ -53,10 +53,10 @@ Windows bildirim alanında yaşar, Antigravity ile yalnızca onun kendi yerel Ch
 
 ## 📸 Görsel Tur
 
-| **Tepsi Menüsü & Canlı Günlük** |
+| **Canlı Günlük Penceresi** |
 | :---: |
-| ![AutoAccept Lite günlük penceresi ve tepsi menüsü](docs/images/tray-log.svg) |
-| *Her tıklama, engelleme ve yeniden bağlanma günlüğe yazılır; tepsi ipucu çalışıyor, duraklatıldı ya da motor durdu bilgisini gösterir. (Arayüz Türkçe Windows'ta Türkçe açılır.)* |
+| ![AutoAccept Lite günlük penceresi](docs/images/log-window.png) |
+| *Gerçek günlük penceresi; uygulama bir deneme sayfasına karşı çalışırken çekildi: tıklamalar ve güvenlik filtresine takılan bir komut. Görüntü İngilizce arayüzdendir; Türkçe Windows'ta arayüz Türkçe açılır.* |
 
 ---
 

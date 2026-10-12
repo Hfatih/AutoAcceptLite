@@ -17,10 +17,27 @@ using Microsoft.Win32;
 [assembly: AssemblyVersion("1.1.3.0")]
 [assembly: AssemblyFileVersion("1.1.3.0")]
 
-// Arayuz dili Windows goruntuleme diline gore secilir: Turkce ise Turkce, degilse Ingilizce.
+// Arayuz dili: app\config.json icindeki "language" ("tr" / "en") motorla ayni sekilde once gelir;
+// yoksa ya da "auto" ise Windows goruntuleme diline bakilir (Turkce ise Turkce, degilse Ingilizce).
 internal static class Lang
 {
-    internal static readonly bool Turkish = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "tr";
+    internal static readonly bool Turkish = Detect();
+
+    private static bool Detect()
+    {
+        try
+        {
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "app", "config.json");
+            if (File.Exists(path))
+            {
+                Match forced = Regex.Match(File.ReadAllText(path), "\"language\"\\s*:\\s*\"(tr|en)\"");
+                if (forced.Success) return forced.Groups[1].Value == "tr";
+            }
+        }
+        catch (IOException) { }
+        catch (UnauthorizedAccessException) { }
+        return CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "tr";
+    }
     internal static string T(string tr, string en) { return Turkish ? tr : en; }
 }
 

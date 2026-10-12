@@ -53,10 +53,10 @@ It lives in the Windows notification area, talks to Antigravity only over its ow
 
 ## 📸 Visual Tour
 
-| **Tray Menu & Live Log** |
+| **Live Log Window** |
 | :---: |
-| ![AutoAccept Lite log window and tray menu](docs/images/tray-log.svg) |
-| *Every click, block and reconnect is logged; the tray tooltip shows running, paused or engine stopped.* |
+| ![AutoAccept Lite log window](docs/images/log-window.png) |
+| *The real log window, captured while the app ran against a demo page: clicks, and one command stopped by the safety filter.* |
 
 ---
 
