@@ -8,8 +8,7 @@
     &nbsp;•&nbsp;
     <a href="https://github.com/Hfatih/AutoAcceptLite/releases/latest">Sürümü İndir</a> ·
     <a href="#%EF%B8%8F-ayarlar">Ayarlar</a> ·
-    <a href="#%EF%B8%8F-nasıl-çalışır">Nasıl Çalışır</a> ·
-    <a href="#-destek--sponsorluk">Bir Kahve Ismarla</a>
+    <a href="#%EF%B8%8F-nasıl-çalışır">Nasıl Çalışır</a>
   </p>
 
   <p>
@@ -22,23 +21,6 @@
     <img src="https://img.shields.io/badge/Telemetri-Yok%20%2F%20%25100%20Yerel-10B981?style=flat-square" alt="Telemetri yok">
     <img src="https://img.shields.io/badge/Lisans-MIT-blue?style=flat-square" alt="MIT Lisansı">
   </p>
-</div>
-
----
-
-## ☕ Destek & Sponsorluk
-
-**AutoAccept Lite** sizi onay pencerelerinin başında beklemekten kurtarıyorsa geliştirilmesine destek olabilirsiniz:
-
-<div align="center">
-  <a href="https://buymeacoffee.com/hfatih" target="_blank">
-    <img src="https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me A Coffee">
-  </a>
-  &nbsp;&nbsp;
-  <a href="https://github.com/sponsors/Hfatih" target="_blank">
-    <img src="https://img.shields.io/badge/Sponsor_on_GitHub-EA4AAA?style=for-the-badge&logo=github-sponsors&logoColor=white" alt="GitHub Sponsor">
-  </a>
-  <p><sub><em>Desteğiniz projenin bağımsız, ücretsiz ve Antigravity değiştikçe güncel kalmasını sağlar.</em></sub></p>
 </div>
 
 ---
