@@ -8,8 +8,7 @@
     &nbsp;•&nbsp;
     <a href="https://github.com/Hfatih/AutoAcceptLite/releases/latest">Download Release</a> ·
     <a href="#%EF%B8%8F-configuration">Configuration</a> ·
-    <a href="#%EF%B8%8F-how-it-works">How It Works</a> ·
-    <a href="#-support--sponsorship">Buy Me a Coffee</a>
+    <a href="#%EF%B8%8F-how-it-works">How It Works</a>
   </p>
 
   <p>
@@ -22,23 +21,6 @@
     <img src="https://img.shields.io/badge/Telemetry-Zero%20%2F%20100%25%20Local-10B981?style=flat-square" alt="Zero Telemetry">
     <img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" alt="License MIT">
   </p>
-</div>
-
----
-
-## ☕ Support & Sponsorship
-
-If **AutoAccept Lite** saves you from babysitting approval prompts, consider supporting its development:
-
-<div align="center">
-  <a href="https://buymeacoffee.com/hfatih" target="_blank">
-    <img src="https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me A Coffee">
-  </a>
-  &nbsp;&nbsp;
-  <a href="https://github.com/sponsors/Hfatih" target="_blank">
-    <img src="https://img.shields.io/badge/Sponsor_on_GitHub-EA4AAA?style=for-the-badge&logo=github-sponsors&logoColor=white" alt="GitHub Sponsor">
-  </a>
-  <p><sub><em>Your support keeps the project independent, free, and updated as Antigravity changes.</em></sub></p>
 </div>
 
 ---
