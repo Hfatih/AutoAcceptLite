@@ -21,6 +21,13 @@
     <img src="https://img.shields.io/badge/Telemetry-Zero%20%2F%20100%25%20Local-10B981?style=flat-square" alt="Zero Telemetry">
     <img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" alt="License MIT">
   </p>
+  <p align="center">
+    <img src="https://hits.sh/github.com/hfatih/AutoAcceptLite.svg?style=flat-square&label=views&color=e7a0b9" alt="Views">
+    <a href="https://github.com/hfatih/AutoAcceptLite/releases"><img src="https://img.shields.io/github/downloads/hfatih/AutoAcceptLite/total?style=flat-square&label=downloads&color=f0abc5" alt="Downloads"></a>
+    <a href="https://github.com/hfatih/AutoAcceptLite/stargazers"><img src="https://img.shields.io/github/stars/hfatih/AutoAcceptLite?style=flat-square&label=stars&color=f0abc5" alt="Stars"></a>
+    <a href="https://github.com/hfatih/AutoAcceptLite/forks"><img src="https://img.shields.io/github/forks/hfatih/AutoAcceptLite?style=flat-square&label=forks&color=dba8c2" alt="Forks"></a>
+    <a href="https://github.com/hfatih/AutoAcceptLite/commits"><img src="https://img.shields.io/github/last-commit/hfatih/AutoAcceptLite?style=flat-square&label=last%20commit&color=bca4dd" alt="Last commit"></a>
+  </p>
 </div>
 
 ---
